@@ -1,0 +1,3 @@
+[submodule "gongfupay-monitor-realname-web"]
+	path = gongfupay-monitor-realname-web
+	url = http://47.96.27.148/web/gongfupay-monitor-realname-web.git
