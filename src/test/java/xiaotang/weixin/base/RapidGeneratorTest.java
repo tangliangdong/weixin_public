@@ -14,14 +14,14 @@ public class RapidGeneratorTest {
         RapidGenerator rapidGenerator = new RapidGenerator();
         rapidGenerator.setAuthor("tangliangdong");
         DBConfig dbConfig = new DBConfig();
-        dbConfig.setUrl("jdbc:mysql://127.0.0.1:3306/weixin?useUnicode=true&amp;characterEncoding=UTF-8");
+        dbConfig.setUrl("jdbc:mysql://116.62.14.208:3306/weixin?useUnicode=true&amp;characterEncoding=UTF-8");
         dbConfig.setUserName("root");
-        dbConfig.setPwd("971011");
+        dbConfig.setPwd("123456");
         dbConfig.setDriver("com.mysql.jdbc.Driver");
         rapidGenerator.initDbConfig(dbConfig);
         rapidGenerator.initOutRootPathConfig("E:\\idea\\weixin");
         rapidGenerator.initPackage("xiaotang.weixin");
 //        rapidGenerator.initModelName("project");
-        rapidGenerator.generatorOneTable("user");
+        rapidGenerator.generatorOneTable("access_token");
     }
 }
