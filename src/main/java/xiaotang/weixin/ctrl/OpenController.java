@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import xiaotang.weixin.dto.AccessTokenDto;
 import xiaotang.weixin.model.User;
 import xiaotang.weixin.service.UserService;
 import xiaotang.weixin.service.WeiXinService;
@@ -20,7 +21,7 @@ public class OpenController {
     private WeiXinService weiXinService;
 
     @PostMapping("getAccessToken")
-    public Map<String, Object> test(String username){
+    public AccessTokenDto test(){
         return weiXinService.getAccessToken();
     }
 

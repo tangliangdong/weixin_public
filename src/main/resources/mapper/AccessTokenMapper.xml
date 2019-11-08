@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xiaotang.weixin.dao.AccessTokenMapper">
+	<resultMap id="fieldMapper" type="xiaotang.weixin.model.AccessToken">
+		<id property="uuid" column="UUID" /><!---->
+        <result property="accessToken" column="ACCESS_TOKEN" /><!---->
+        <result property="expire" column="EXPIRE" /><!---->
+        <result property="status" column="STATUS" /><!---->
+        <result property="ctime" column="CTIME" /><!---->
+        <result property="utime" column="UTIME" /><!---->
+    </resultMap>
+    <sql id="fieldAsProperty">
+		UUID AS uuid,
+		ACCESS_TOKEN AS accessToken,
+		EXPIRE AS expire,
+		STATUS AS status,
+		CTIME AS ctime,
+		UTIME AS utime
+    </sql>
+
+    <select id="selectOneAccessToken" resultType="xiaotang.weixin.model.AccessToken">
+        select
+            <include refid="fieldAsProperty" />
+        from access_token
+        order by utime desc
+        limit 1
+    </select>
+
+</mapper>
+
