@@ -25,6 +25,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     static {
         NOT_NEED_LOGIN_MODULES.add("open");
         NOT_NEED_LOGIN_MODULES.add("index");
+        NOT_NEED_LOGIN_MODULES.add("weixin");
 
     }
 

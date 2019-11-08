@@ -14,6 +14,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 @EnableCaching
@@ -47,9 +48,11 @@ public class RedisConfiguration extends CachingConfigurerSupport {
 		objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
 		Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
 		jackson2JsonRedisSerializer.setObjectMapper(new ObjectMapper());
+		template.setKeySerializer(new StringRedisSerializer());
 		template.setValueSerializer(jackson2JsonRedisSerializer);
 		template.setHashValueSerializer(jackson2JsonRedisSerializer);
 		template.afterPropertiesSet();
+
 		return template;
 	}
 
