@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.gonghui.monitor</groupId>
-    <artifactId>gongfupay-monitor-realname</artifactId>
+    <groupId>xiaotang.weixin</groupId>
+    <artifactId>weixin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>gongfupay-monitor-realname</name>
-    <description>gongfupay project for Spring Boot</description>
+    <name>weixin</name>
+    <description>weixin public</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -304,6 +304,16 @@
             <artifactId>commons-fileupload</artifactId>
             <version>1.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -344,35 +354,35 @@
                     </nonFilteredFileExtensions>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.codehaus.mojo</groupId>-->
-                <!--<artifactId>wagon-maven-plugin</artifactId>-->
-                <!--<version>1.0</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>upload-deploy</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>upload-single</goal>-->
-                            <!--<goal>sshexec</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<fromFile>target/ROOT.war</fromFile>-->
-                            <!--<toFile>facewayTmp/ROOT.war</toFile>-->
-                            <!--<url>scp://root:Gonghui821@120.55.72.217/mnt/</url>-->
-                            <!--<commands>-->
-                                <!--<command>netstat -pltn | grep 9001 | awk '{print $7}' | cut -d/ -f1 | xargs -r kill -9-->
-                                <!--</command>-->
-                                <!--<command>rm -rf /mnt/service/faceway-web/apache-tomcat-8.5.11/webapps/*</command>-->
-                                <!--<command>mv /mnt/facewayTmp/ROOT.war /mnt/service/faceway-web/apache-tomcat-8.5.11/webapps/-->
-                                <!--</command>-->
-                                <!--<command>sh /mnt/service/faceway-web/apache-tomcat-8.5.11/bin/startup.sh</command>-->
-                            <!--</commands>-->
-                            <!--<displayCommandOutputs>true</displayCommandOutputs>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>wagon-maven-plugin</artifactId>
+                <version>1.0</version>
+                <executions>
+                    <execution>
+                        <id>upload-deploy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>upload-single</goal>
+                            <goal>sshexec</goal>
+                        </goals>
+                        <configuration>
+                            <fromFile>target/ROOT.war</fromFile>
+<!--                            <toFile>ROOT.war</toFile>-->
+                            <url>scp://root:Caiting971011@116.62.14.208/tmp/weixin</url>
+                            <commands>
+                                <command>netstat -pltn | grep 80 | awk '{print $7}' | cut -d/ -f1 | xargs -r kill -9
+                                </command>
+                                <command>rm -rf /mnt/weixin/common/apache-tomcat-8.5.45/webapps/*</command>
+                                <command>mv /tmp/weixin/ROOT.war /mnt/weixin/common/apache-tomcat-8.5.45/webapps/
+                                </command>
+                                <command>sh /mnt/weixin/common/apache-tomcat-8.5.45/bin/startup.sh</command>
+                            </commands>
+                            <displayCommandOutputs>true</displayCommandOutputs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <resources>
             <resource>

@@ -19,13 +19,5 @@
 		UTIME AS utime
     </sql>
 
-    <select id="selectOneAccessToken" resultType="xiaotang.weixin.model.AccessToken">
-        select
-            <include refid="fieldAsProperty" />
-        from access_token
-        order by utime desc
-        limit 1
-    </select>
-
 </mapper>
 
