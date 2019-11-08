@@ -3,7 +3,7 @@
     <include resource="org/springframework/boot/logging/logback/base.xml" />
 
     <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>/mnt/logs/gongfupay-faceway-web/info/info.log</File>
+        <File>/mnt/logs/weixin/info/info.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/mnt/logs/gongfupay-faceway-web/info/info-%d{yyyyMMdd}.log.%i</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
@@ -21,7 +21,7 @@
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>ERROR</level>
         </filter>
-        <File>/mnt/logs/gongfupay-faceway-web/error/error.log</File>
+        <File>/mnt/logs/weixin/error/error.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/mnt/logs/gongfupay-faceway-web/error/error-%d{yyyyMMdd}.log.%i
             </fileNamePattern>

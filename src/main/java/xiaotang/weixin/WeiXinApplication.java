@@ -35,10 +35,10 @@ import java.util.Properties;
 @MapperScan("xiaotang.weixin.dao")
 //@ImportResource({"classpath:dubbo.xml"})
 @ServletComponentScan
-public class GongfupayWebApplication extends WebMvcConfigurerAdapter {
+public class WeiXinApplication extends WebMvcConfigurerAdapter {
 
   public static void main(String[] args) {
-    SpringApplication.run( GongfupayWebApplication.class, args );
+    SpringApplication.run( WeiXinApplication.class, args );
   }
 
   @Bean
